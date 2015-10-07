@@ -1,0 +1,56 @@
+<html ng-app="myApp">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+  <div>
+    <h1 class="myName">Sanky's Todo Application</h1>
+
+    <section>
+      <section class="List-Control">
+        <span>{{ remaining() }} / {{ todos.length }} tasks finished</span><br>
+        <button ng-click="clear()">Remove Completed Items</button>
+        <button ng-click="selectAll()">Mark All as Completed</button>
+      </section>
+      <br>
+      <br>
+
+      <form ng-submit="addTodo()" class="addForm">
+        <input type="text" ng-model="todoText" placeholder="Enter new task" size="28">
+        <br>
+        <textarea type="text" ng-model="descriptionText" placeholder="Enter description of task" /></textarea>
+        <br>
+        <input type="date" ng-model="dateText" placeholder="Enter ToDo description" />
+        <br>
+        <input type="submit" value="Add Task" class="submitButton">
+      </form>
+
+      <ol>
+        <li ng-repeat="todo in todos track by $index">
+          <div class="taskInfo">
+            <input type="checkbox" ng-model="todo.done" ng-hide="editing">
+            <p class="done-{{ todo.done }}"><span>Task: </span>{{ todo.task }}</p>
+            <p class="done-{{ todo.done }}"><span>Description: </span>{{ todo.description }}</p>
+            <p class="done-{{ todo.done }}"><span>Due Date: </span>{{ todo.date | date:'MMM d, y' }}</p>
+            <button ng-click="deleteItem()">Delete Task</button><button ng-click="editItem()" ng-hide="editing">Edit Task</button>
+          </div>
+          <div class="editForm">
+            <form ng-submit="editTodo()" ng-show="editing">
+              <input type="text" ng-model="todoText" ng-value="todo.task" size="28">
+              <br>
+              <input type="text" ng-model="descriptionText" ng-value="todo.description"></textarea>
+              <br>
+              <input type="date" ng-model="dateText" ng-value="todo.date" ng-value="todo.date">
+              <br>
+              <input type="submit" value="Edit Task" class="submitButton">
+            </form>
+          </div>
+        </li>
+      </ol>
+
+    </section>
+  </div>
+</body>
+</html>

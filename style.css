@@ -1,0 +1,49 @@
+.myName {
+  font-size: 72;
+  text-align: center;
+}
+
+.List-Control {
+  font-size: 36px;
+  text-align: center;
+}
+
+body {
+  margin: 72px;
+}
+
+.done-true {
+  text-decoration: line-through;
+}
+
+ol li {
+  border: 1px black solid;
+  margin-top: 24px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+input {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+textarea {
+  font-size: 24px;
+  width: 353px;
+  height: 100px;
+}
+
+.addForm {
+  text-align: center;
+}
+
+.editForm {
+  float: right;
+  margin-top: -140px;
+}
+
+.submitButton {
+  width: 120px;
+}
